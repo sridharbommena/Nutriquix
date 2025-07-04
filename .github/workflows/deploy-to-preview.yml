@@ -17,3 +17,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
           projectId: giftedchat-7ccf1
+          expires: 30d
+          channelId: 'nutriquix-test-${{ github.event.number }}'
