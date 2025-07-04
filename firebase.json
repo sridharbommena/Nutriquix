@@ -1,7 +1,6 @@
 {
   "hosting": {
     "public": "dist/Nutriquix",
-    "site": "nutriquix",
     "ignore": [
       "firebase.json",
       "**/.*",
