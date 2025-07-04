@@ -1,0 +1,42 @@
+name: Deploy to Nutriquix (Dev & Prod)
+
+on:
+  push:
+    branches:
+      - 'feature-**'
+      - 'master'
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm run build
+
+      - name: Print deploy message
+        run: |
+            if [[ "${GITHUB_REF}" == "refs/heads/master" ]]; then
+            echo "Deploying to production environment..."
+            elif [[ "${GITHUB_REF}" == refs/heads/feature/* ]]; then
+            echo "Deploying to test environment..."
+            fi
+
+      # Deploy to nutriquix-test when on feature/* branches
+      - name: Deploy to test
+        if: startsWith(github.ref, 'refs/heads/feature-')
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
+          projectId: giftedchat-7ccf1
+          target: test
+
+      # Deploy to prod when on master branch
+      - name: Deploy to prod
+        if: github.ref == 'refs/heads/master'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
+          projectId: giftedchat-7ccf1
+          target: prod
