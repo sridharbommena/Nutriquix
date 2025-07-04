@@ -1,4 +1,4 @@
-name: Deploy to Nutriquix (Dev & Prod)
+name: Deploy to Nutriquix 
 
 on:
   push:
@@ -13,14 +13,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: npm run build
 
-      - name: Print deploy message
-        run: |
-            if [[ "${GITHUB_REF}" == "refs/heads/master" ]]; then
-            echo "Deploying to production environment..."
-            elif [[ "${GITHUB_REF}" == refs/heads/feature/* ]]; then
-            echo "Deploying to test environment..."
-            fi
-
       # Deploy to nutriquix-test when on feature/* branches
       - name: Deploy to test
         if: startsWith(github.ref, 'refs/heads/feature-')
@@ -29,6 +21,7 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
           projectId: giftedchat-7ccf1
+          channelId: live
           target: test
 
       # Deploy to prod when on master branch
@@ -39,4 +32,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
           projectId: giftedchat-7ccf1
+          channelId: live
           target: prod
