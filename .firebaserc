@@ -5,10 +5,10 @@
   "targets": {
     "giftedchat-7ccf1": {
       "hosting": {
-        "test": [
+        "nutriquix-test": [
           "nutriquix-test"
         ],
-        "prod": [
+        "nutriquix": [
           "nutriquix"
         ]
       }

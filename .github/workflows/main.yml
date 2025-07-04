@@ -22,7 +22,7 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
           projectId: giftedchat-7ccf1
           channelId: live
-          target: test
+          target: nutriquix-test
 
       # Deploy to prod when on master branch
       - name: Deploy to prod
@@ -33,4 +33,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GIFTEDCHAT_7CCF1 }}
           projectId: giftedchat-7ccf1
           channelId: live
-          target: prod
+          target: nutriquix

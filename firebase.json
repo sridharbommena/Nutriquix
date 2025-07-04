@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "test",
+      "target": "nutriquix-test",
       "public": "dist/Nutriquix/browser",
       "ignore": [
         "firebase.json",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "target": "prod",
+      "target": "nutriquix",
       "public": "dist/Nutriquix/browser",
       "ignore": [
         "firebase.json",
