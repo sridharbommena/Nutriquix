@@ -1,0 +1,62 @@
+{
+  "name": "nutriquix",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "build": "npm install && ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "env:local": "cross-env ENV=local node scripts/set-env.ts",
+    "env:test": "cross-env ENV=test node scripts/set-env.ts",
+    "env:prod": "cross-env ENV=prod node scripts/set-env.ts",
+    "start": "npm run env:local && ng serve",
+    "start:test": "npm run env:test && ng serve --configuration=test",
+    "start:prod": "npm run env:prod && ng serve --configuration=production"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.0.6",
+    "@angular/compiler": "^20.0.6",
+    "@angular/core": "^20.0.6",
+    "@angular/fire": "^20.0.1",
+    "@angular/forms": "^20.0.6",
+    "@angular/platform-browser": "^20.0.6",
+    "@angular/router": "^20.0.6",
+    "@fortawesome/angular-fontawesome": "^2.0.1",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@primeuix/themes": "^1.2.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.0.0-rc.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.5",
+    "@angular/cli": "^20.0.5",
+    "@angular/compiler-cli": "^20.0.6",
+    "@angular/localize": "^20.0.6",
+    "@types/jasmine": "~5.1.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^17.0.1",
+    "jasmine-core": "~5.7.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.8.2"
+  }
+}

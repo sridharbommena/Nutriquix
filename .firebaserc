@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "nutriquix"
+  },
+  "targets": {
+    "giftedchat-7ccf1": {
+      "hosting": {
+        "nutriquix-test": [
+          "nutriquix-test"
+        ],
+        "nutriquix": [
+          "nutriquix"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
