@@ -17,12 +17,12 @@ jobs:
       - name: 🟢 Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: v22.12
+          node-version: 18
 
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🔐 Create .env from GitHub secrets
+      - name: 🔐 Create .env file from GitHub Secrets
         run: |
           echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
           echo "FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}" >> .env
@@ -31,18 +31,20 @@ jobs:
           echo "FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> .env
           echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
 
-      - name: 🧪 Generate environment.[test|prod].ts
+      - name: 📌 Set ENV variable for branch
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
             echo "ENV=prod" >> $GITHUB_ENV
           else
             echo "ENV=test" >> $GITHUB_ENV
           fi
-          node scripts/set-env.ts
+
+      - name: 🧪 Generate Angular environment file
+        run: npx cross-env ENV=${{ env.ENV }} node scripts/set-env.ts
 
       - name: 🏗️ Build Angular app
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+          if [[ "${{ env.ENV }}" == "prod" ]]; then
             npm run build -- --configuration=production
           else
             npm run build -- --configuration=test
