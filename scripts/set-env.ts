@@ -1,11 +1,18 @@
+// scripts/set-env.ts
 const fs = require('fs');
 const dotenv = require('dotenv');
-dotenv.config({ path: '.env.local' }); // Explicitly specify file
+dotenv.config({ path: '.env' }); // or '.env.local' if used locally
 
 const env = process.env.ENV || 'local';
-const targetPath = `src/environments/environment.${env === 'local' ? '' : env + '.'}ts`;
 
-const config = `
+let targetFile = 'src/environments/environment.ts'; // default fallback
+if (env === 'test') {
+  targetFile = 'src/environments/environment.test.ts';
+} else if (env === 'prod') {
+  targetFile = 'src/environments/environment.prod.ts';
+}
+
+const content = `
 export const environment = {
   production: ${env === 'prod'},
   firebaseConfig: {
@@ -19,5 +26,5 @@ export const environment = {
 };
 `;
 
-fs.writeFileSync(targetPath, config.trim());
-console.log(`✅ Environment file written to ${targetPath}`);
+fs.writeFileSync(targetFile, content.trim());
+console.log(`✅ Environment file written to ${targetFile}`);
