@@ -1,0 +1,66 @@
+.login-card-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fbff, #d2f3f5);
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+}
+
+.brand-heading {
+  font-family: 'Poppins', sans-serif;
+  color: #4C63CB;
+}
+
+
+.custom-button ::ng-deep .p-button {
+  background-color: #5a67d8 !important;
+  border-color: #5a67d8 !important;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.google-login-btn {
+  font-weight: 500;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease-in-out;
+  font-size: 0.95rem;
+
+  &:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    margin-right: 8px;
+  }
+}
+.login-btn ::ng-deep .p-button {
+  background-color: #4C63CB !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.6rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(76, 99, 203, 0.25);
+}
+
+.login-btn ::ng-deep .p-button:hover {
+  background-color: #3a4bb3 !important;
+  box-shadow: 0 6px 16px rgba(76, 99, 203, 0.35);
+  transform: translateY(-1px);
+}
+
+

@@ -1,1 +1,68 @@
-<p>login works!</p>
+<div class="container-fluid login-card-parent">
+  <div class="login-card shadow-lg bg-white">
+    <form [formGroup]="loginForm">
+
+      <h1 class="h1 text-center mb-2 fw-bold brand-heading">Nutriquix</h1>
+      <p class="text-center text-muted mb-4">Track Smart. Eat Better.</p>
+
+      <!-- Username Field -->
+      <p-inputgroup class="mb-3">
+        <p-inputgroup-addon>
+          <i class="pi pi-envelope"></i>
+        </p-inputgroup-addon>
+        <input class="form-control" pInputText formControlName="userName" placeholder="Email Address" />
+      </p-inputgroup>
+
+      <!-- Password Field with Eye Toggle -->
+      <p-inputgroup class="mb-3">
+        <p-inputgroup-addon>
+          <i class="pi pi-lock"></i>
+        </p-inputgroup-addon>
+        <p-password formControlName="password" placeholder="Password" [feedback]="false"
+          inputStyleClass="form-control w-100"></p-password>
+
+      </p-inputgroup>
+
+      <!-- Remember Me + Forgot Password -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="rememberMe" />
+          <label class="form-check-label text-muted" for="rememberMe">Remember Me</label>
+        </div>
+        <a class="text-decoration-none small text-primary" href="#">Forgot Password?</a>
+      </div>
+
+      <!-- Login Button -->
+      <!-- Login Button -->
+      <div class="d-grid mb-3">
+        <div class="d-grid mb-3">
+          <p-button label="Login" (onClick)="onLogin()" icon="pi pi-sign-in" iconPos="right" class="login-btn" styleClass="w-100"></p-button>
+        </div>
+
+      </div>
+
+
+      <!-- Divider -->
+      <div class="text-center my-3 text-muted">or</div>
+
+      <!-- Social Login Buttons -->
+      <div class="d-grid gap-2 mb-3">
+        <button type="button" class="btn google-login-btn w-100 d-flex align-items-center justify-content-center">
+          <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" width="18" height="18"
+            class="me-2" />
+          <span>Login with Google</span>
+        </button>
+
+
+        <button type="button" class="btn btn-outline-dark w-100">
+          <i class="pi pi-github me-2"></i> Login with GitHub
+        </button>
+      </div>
+
+      <!-- Register Prompt -->
+      <p class="text-center small text-muted mt-3">
+        Don't have an account? <a class="text-primary text-decoration-none" href="#">Register</a>
+      </p>
+    </form>
+  </div>
+</div>
