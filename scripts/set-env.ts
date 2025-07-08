@@ -5,6 +5,10 @@ dotenv.config({ path: '.env' }); // or '.env.local' if used locally
 
 const env = process.env.ENV || 'local';
 
+if(process.env.FIREBASE_API_KEY === undefined){
+  dotenv.config({ path: '.env.local' });
+}
+
 let targetFile = 'src/environments/environment.ts'; // default fallback
 if (env === 'test') {
   targetFile = 'src/environments/environment.test.ts';
