@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
+import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 
 
@@ -12,5 +13,16 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './home.css'
 })
 export class Home {
+  auth = inject(Auth);
+  router = inject(Router);
 
+  logOutUser() {
+    if (this.auth !== null) {
+      this.auth.signOut().then(
+        () => {
+          this.router.navigateByUrl('/login');
+        }
+      )
+    }
+  }
 }

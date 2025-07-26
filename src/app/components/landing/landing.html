@@ -1,6 +1,58 @@
-<p>landing works!</p>
+<!-- Landing Page Component for Nutriquix -->
+<div class="landing-container" style="font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); min-height: 100vh; display: flex; flex-direction: column;">
 
-<p-button label="Login" [routerLink]="['/login']"/>
-<br />
-<br />
-<p-button label="Signup" [routerLink]="['/register']"/>
+    <!-- Header -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 4vw;">
+        <div style="font-size: 2rem; font-weight: bold; color: #4f46e5;">
+            Nutriquix
+        </div>
+        <nav>
+            <button style="margin-right: 1rem; padding: 0.6rem 1.5rem; border: none; border-radius: 5px; background: #6366f1; color: #fff; font-weight: 500; cursor: pointer;"
+                [routerLink]="['login']">
+                Login
+            </button>
+            <button style="padding: 0.6rem 1.5rem; border: 2px solid #4f46e5; border-radius: 5px; background: #fff; color: #4f46e5; font-weight: 600; box-shadow: 0 2px 8px rgba(79,70,229,0.10); transition: background 0.2s, color 0.2s; cursor: pointer;"
+                [routerLink]="['register']">
+                Register
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+        <h1 style="font-size: 3rem; font-weight: 800; color: #3730a3; margin-bottom: 1rem;">
+            Track Your Calories Effortlessly
+        </h1>
+        <p style="font-size: 1.3rem; color: #4b5563; max-width: 600px; margin-bottom: 2rem;">
+            Nutriquix is your all-in-one solution for tracking calories, monitoring nutrition, and achieving your health goals. Whether you're looking to lose weight, gain muscle, or simply eat healthier, our intuitive platform makes it easy to log meals, analyze your diet, and stay motivated.
+        </p>
+        <div style="margin-bottom: 2.5rem;">
+            <button style="margin-right: 1rem; padding: 0.8rem 2rem; border: none; border-radius: 6px; background: #6366f1; color: #fff; font-size: 1.1rem; font-weight: 600; cursor: pointer;"
+            [routerLink]="['register']"
+            >
+                Get Started
+            </button>
+            <button style="padding: 0.8rem 2rem; border: 2px solid #6366f1; border-radius: 6px; background: #fff; color: #6366f1; font-size: 1.1rem; font-weight: 600; cursor: pointer;">
+                Learn More
+            </button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+                 alt="Healthy food illustration"
+                 style="max-width: 400px; width: 100%; border-radius: 18px; box-shadow: 0 8px 32px rgba(99,102,241,0.15); margin-bottom: 2rem;">
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #3730a3; color: #fff; padding: 2rem 4vw; text-align: center;">
+        <div style="margin-bottom: 1rem;">
+            <strong>Contact Us:</strong>
+            <a href="mailto:support@nutriquix.com" style="color: #fff; margin-left: 0.5rem; text-decoration: underline;">support&#64;nutriquix.com</a>
+            <span style="margin: 0 1rem;">|</span>
+            <a href="https://twitter.com/nutriquix" target="_blank" style="color: #fff; text-decoration: underline;">Twitter</a>
+            <span style="margin: 0 1rem;">|</span>
+            <a href="https://facebook.com/nutriquix" target="_blank" style="color: #fff; text-decoration: underline;">Instagram</a>
+        </div>
+        <div style="font-size: 0.95rem;">
+            &copy; 2024 Nutriquix. All rights reserved.
+        </div>
+    </footer>
+</div>

@@ -1,1 +1,63 @@
-<p>register works!</p>
+<div class="container-fluid login-card-parent">
+    <div class="login-card shadow-lg bg-white">
+        <form [formGroup]="registerForm">
+
+            <h1 class="h1 text-center mb-2 fw-bold brand-heading">Nutriquix</h1>
+            <p class="text-center text-muted mb-4">Track Smart. Eat Better.</p>
+
+            <!-- Email Field -->
+            <p-inputgroup class="mb-3">
+                <p-inputgroup-addon>
+                    <i class="pi pi-envelope"></i>
+                </p-inputgroup-addon>
+                <input class="form-control" pInputText formControlName="email" placeholder="Email Address" />
+            </p-inputgroup>
+
+            <!-- Password Field -->
+            <p-inputgroup class="mb-3">
+                <p-inputgroup-addon>
+                    <i class="pi pi-lock"></i>
+                </p-inputgroup-addon>
+                <p-password formControlName="password" placeholder="Password" [feedback]="false"
+                    inputStyleClass="form-control w-100"></p-password>
+            </p-inputgroup>
+
+            <!-- Confirm Password Field -->
+            <p-inputgroup class="mb-3">
+                <p-inputgroup-addon>
+                    <i class="pi pi-lock"></i>
+                </p-inputgroup-addon>
+                <p-password formControlName="confirmPassword" placeholder="Confirm Password" [feedback]="false"
+                    inputStyleClass="form-control w-100"></p-password>
+            </p-inputgroup>
+
+            <!-- Register Button -->
+            <div class="d-grid mb-3">
+                <p-button label="Register" (onClick)="onRegister()" icon="pi pi-user-plus" iconPos="right" class="login-btn"
+                    styleClass="w-100"></p-button>
+            </div>
+
+            <!-- Divider -->
+            <div class="text-center my-3 text-muted">or</div>
+
+            <!-- Social Signup Buttons -->
+            <div class="d-grid gap-2 mb-3">
+                <button type="button"
+                    class="btn google-login-btn w-100 d-flex align-items-center justify-content-center">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" width="18"
+                        height="18" class="me-2" />
+                    <span>Signup with Google</span>
+                </button>
+
+                <button type="button" class="btn btn-outline-dark w-100">
+                    <i class="pi pi-github me-2"></i> Signup with GitHub
+                </button>
+            </div>
+
+            <!-- Login Prompt -->
+            <p class="text-center small text-muted mt-3">
+                Already have an account? <a class="text-primary text-decoration-none" href="/login">Login</a>
+            </p>
+        </form>
+    </div>
+</div>
